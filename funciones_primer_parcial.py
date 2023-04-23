@@ -77,7 +77,8 @@ def completarVenn3(A,B,C):
     
     para la utilizacion usar:
         for k,v in completarVenn3.items():
-            diagrama.get_label_by_id(k).set_text(v)
+            if (v != set()):
+                diagrama.get_label_by_id(k).set_text(v)
 
     Parameters
     ----------
@@ -133,7 +134,8 @@ if(__name__=="__main__"):
     import matplotlib.pyplot as plt
     from matplotlib_venn import venn3
     
-    B = [3,5,10,12]
+    B = [9,3]
+    #B = [3,5,10,12]
     M = {"a":10,"b":20,"c":15,"d":5}
     U = (12,10,20,18)
     
@@ -163,7 +165,8 @@ if(__name__=="__main__"):
     diagrama = venn3([b,m,u], set_labels=("B","M","U"))
     
     for k,v in completarVenn3(b, m, u).items():
-        diagrama.get_label_by_id(k).set_text(v)
+        if (v != set()):
+            diagrama.get_label_by_id(k).set_text(v)
     
     plt.title("Diagrama de Venn")
     plt.show()
